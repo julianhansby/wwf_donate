@@ -1,0 +1,37 @@
+<!-- HEADER -->
+<div class="row header">
+	<h1>Featured Charity</h1>
+	<img src="../img/koala.jpg">
+</div>
+
+<!-- TABS -->
+<div class="row tabs">
+	<ul>
+		<li ng-click="filterBy('newest')"><span>Newest</span></li>
+		<li ng-click="filterBy('popular')"><span>Popular</span></li>
+		<li ng-click="filterBy('enddate')"><span>End date</span></li>
+	</ul>
+</div>
+
+<!-- CONTENT -->
+<div class="row content">
+
+	<!-- LOOP OVER ITEMS -->
+	<div class="data-content" ng-repeat="item in data">
+		<div class="top">
+			<img ng-src="{{item.imageUrl_thumb}}" />
+			<div class="info">
+				<h2>{{item.title}}</h2>
+				<span>{{item.subTitle}}</span>
+				<strong>{{item.keyword}}, {{item.province}}</strong>
+			</div>	
+		</div>
+		<div class="bottom-toolbar">
+			<div class="pill">
+				<span>1 Day remaining</span>
+				<span>24% Raised</span>
+			</div>
+		</div>
+	</div>
+
+</div>

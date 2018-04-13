@@ -1,0 +1,113 @@
+/* 
+	Quick little boilerplate with resets and blah blah blah --- 
+	BOOTSTRAP is overkill for this project.
+
+	I wanted to go with sass compilation and npm install node-sass,
+	but (for speed sake) I opted for vanilla CSS ;)
+
+	Author: Julian Hansby;
+	Email Addy: hansbyj@yahoo.com; 
+*/
+
+/* ============================== GENERIC ============================== */
+
+body,html {
+	margin: 0;
+	padding: 0;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1em;
+}
+
+ul, li {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;	
+}
+
+li {
+	display: inline-block;
+	text-align: center;	
+}
+
+	li span {
+		padding: 3%; 
+	}	
+
+h1,h2 { font-size: 1.1em }
+
+.container, .row, h1, h2 {
+	margin: 0;
+	padding: 0;
+}
+
+/* ============================== HEADER ============================== */
+
+.header {
+	margin: 0;
+}
+
+	.header h1 {
+		font-size: 1.1em;
+		padding: 3%;
+	}
+
+	.header img {
+		width: 100%;
+		display: block;
+	}
+
+/* ============================== TABS ============================== */
+
+.tabs {
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;	
+}
+
+	.tabs li {
+		padding: 2.5% 0;
+		width: 32%;
+		border-right: 1px solid #ddd;			
+	}
+
+		.tabs li:last-child { border: none }
+
+/* ============================== CONTENT ============================== */
+
+.data-content {
+	border-bottom: 2px solid #ddd;
+	padding: 4%;
+}
+	
+	.data-content img {
+		float: left;
+		border-radius: 50%;
+		padding: 0px 10px;
+		width: 65px;
+		height: 60px;
+	}
+
+	.data-content span {
+		display: block;
+		font-size: 0.8em;
+		color: #aaa;
+		text-transform: uppercase;		
+	}
+
+	.data-content strong { font-size: 0.8em }
+
+	.data-content .pill {
+		background-color: #bbb;
+		border-radius: 30px;
+		margin-top: 10px;
+		text-align: center;
+		line-height: 1.5em;
+	}
+
+		.data-content .pill span {
+			display: inline-block;
+			color: #fff;
+			width: 45%;
+			text-transform: none;		
+		}
+
+			.data-content .pill span:first-child { border-right: 1px solid #fff  }

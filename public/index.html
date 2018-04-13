@@ -1,11 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="wwf">
 <head>
 	<title>WWF Donations</title>
+
+	<meta charset="UTF-8">
+	<meta name="description" content="prototype website for WWF foundation, showcasing donations.">
+	<meta name="keywords" content="WWF, Donations">
+	<meta name="author" content="Julian Hansby">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">	
+
+	<!-- GOOGLE FONT -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+	<!-- CUSTOM CSS -->
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
 
-	<p>yo yo yo!! we have a web app RUNNING!!!! :D YAY!!</p>
+	<div class="container" ng-controller="mainController">
 
+		<!-- LOAD MAIN VIEW -->
+		<div ng-view></div>
+
+	</div>
+
+	<!-- SCRIPT LOADING -->
+	<script src="js/vendor/angular.min.js"></script>
+	<script src="js/vendor/angular-route.min.js"></script>	
+	<script src="js/main.js"></script>	
 </body>
 </html>
