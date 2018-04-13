@@ -1,0 +1,28 @@
+{
+  "name": "wwfdonate",
+  "version": "1.0.0",
+  "description": "Prototype showcasing donations to WWF",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julianhansby/wwf_donate.git"
+  },
+  "keywords": [
+    "donate",
+    "wwf"
+  ],
+  "author": "Julian Hansby",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/julianhansby/wwf_donate/issues"
+  },
+  "homepage": "https://github.com/julianhansby/wwf_donate#readme",
+  "dependencies": {
+    "angular": "^1.6.9",
+    "express": "^4.16.3",
+    "nodemon": "^1.17.3"
+  }
+}
