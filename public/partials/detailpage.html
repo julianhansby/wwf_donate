@@ -1,0 +1,59 @@
+<!-- HEADER -->
+<div class="header">
+	<div class="background-image">
+		<img src="../img/penguins.jpg" class="main-img">
+	</div>
+	<div class="top">
+		<img src="../img/wwf_logo.jpg" class="wwf-logo">
+		<h3>{{title}}</h3>
+	</div>
+	<div class="bar-data">
+		<div class="pb-holder">
+			<div class="arrow-bubble" style="left: {{raised}}%">{{raised}}%</div>
+			<div class="arrow-down" style="left: {{raised}}%"></div>
+			<div class="inner-bar" style="width: {{raised}}%"></div>
+		</div>
+		<div class="stats">
+			<div class="item">
+				<span class="big-font">R{{goalAmount}}</span>
+				<span>Goal</span>
+			</div>
+			<div class="item">
+				<span class="big-font">{{daysToGo}}</span>
+				<span>Days to go</span>
+			</div>
+			<div class="item">
+				<span class="big-font">{{contributors}}</span>
+				<span>Contributors</span>
+			</div>						
+		</div>
+	</div>
+</div>
+
+<!-- TABS -->
+<div class="row tabs clearfix">
+	<ul>
+		<li ng-click="filterBy('about')" ng-class="{ active:activeTag == 'about' }">
+			<span>About</span>
+		</li>
+		<li ng-click="filterBy('supporters')" ng-class="{ active:activeTag == 'supporters' }">
+			<span>Supporters</span>
+		</li>
+		<li ng-click="filterBy('contact')" ng-class="{ active:activeTag == 'contact' }">
+			<span>Contact</span>
+		</li>
+	</ul>
+</div>
+
+<!-- CONTENT -->
+<div class="row content">
+
+	<!-- LOOP OVER ITEMS -->
+	<div class="data-content no-border">
+		<p class="back-link"><a href="/">&lsaquo; Go Back</a></p>
+		<p>{{contentDisplay}}</p>
+	</div>
+	<div class="bottom-toolbar" ng-hide="raised == 100">
+		<button class="btn donate-btn" ng-click="donate()">Donate</button>
+	</div>
+</div>

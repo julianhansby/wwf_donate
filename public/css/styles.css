@@ -24,26 +24,116 @@ ul, li {
 	list-style-type: none;	
 }
 
-li {
-	display: inline-block;
-	text-align: center;	
+a {
+	color: #222;
+	text-decoration: none;
 }
 
-	li span {
-		padding: 3%; 
-	}	
+input {
+	border: 1px solid #555;
+	width: 96%;
+	padding: 2%;
+}
 
-h1,h2 { font-size: 1.1em }
+p { text-align: justify }
+
+li { text-align: center }
+
+	li span { padding: 3% }	
+
+	li.active { background-color: #eaeaea  }
+
+h1,h2 {
+	font-size: 1.1em;
+	color: #222;
+}
+
+.clearfix::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+
+.btn {
+	border-radius: 4px;
+	text-align: center;
+}
+
+.no-border { border: none !important }
+
+.donate-btn {
+	border: 1px solid #029802;
+	text-align: center;
+	color: #fff;	
+}
+
+.barColor, .donate-btn, .completed { background-color: #09bb07 !important }
 
 .container, .row, h1, h2 {
 	margin: 0;
 	padding: 0;
 }
 
+.overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: #000;
+	opacity: 0.7;
+	width: 100%;
+	height: 100%;
+	z-index: 998;
+}
+
+.close-btn {
+	font-size: 1.2em !important;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    color: #fff !important;
+    background-color: #000;
+    border-radius: 100%;
+    padding: 2% 3%;
+    line-height: 1em;
+    font-weight: bold;
+}
+
+.modal {
+	background-color: #fff; 
+	position: absolute;
+	z-index: 999;
+	width: 100%;
+	max-width: 600px;
+	height: 400px;
+	top: 10%;
+	left: 50%;
+	margin-left: -330px;
+	padding: 5%;
+	border-radius: 4px;
+	box-shadow: 0px 1px;
+}
+
+	@media screen and (max-width: 480px){
+		.modal {
+			width: 80%;
+			left: 0;
+			margin: 0 5%;
+		}
+	}
+
+	.modal button {
+		width: 100%;
+		font-size: 1em;
+		margin-top: 8px;
+		padding: 10px 0;
+	}	
+
 /* ============================== HEADER ============================== */
 
 .header {
 	margin: 0;
+	position: relative;
+	color: #fff;
 }
 
 	.header h1 {
@@ -51,10 +141,91 @@ h1,h2 { font-size: 1.1em }
 		padding: 3%;
 	}
 
-	.header img {
+	.header h3 {
+		float: left;
+    	font-size: 1.3em;
+    	padding-left: 12px;
+    	width: 70%;
+	}
+
+	.header .main-img {
 		width: 100%;
 		display: block;
 	}
+
+	.header .top, .header .bar-data { position: absolute } 
+
+		.header .top {
+			top: 15px;
+			left: 15px;			
+		}
+
+		.header .bar-data {
+			bottom: 20px;
+			width: 90%;
+    		margin: 0 5%;
+		}
+
+			.header .bar-data .pb-holder {
+				position: relative;
+				width: 100%;
+			    height: 15px;
+			    background-color: #ddd;
+				border-radius: 12px;
+			}
+
+				.header .bar-data .pb-holder .inner-bar {
+					position: absolute;
+				    height: 15px;
+				    background-color: #09bb07;
+					border-radius: 12px;
+				}
+
+				.header .bar-data .pb-holder .arrow-bubble {
+					width: 50px;
+					height: 22px;
+					background-color: #fff;
+					position: absolute;
+					top: -40px;
+					z-index: 999;
+					text-align: center;
+					padding: 5px;
+					border-radius: 8px;
+					margin-left: -30px;
+					color: #222;
+				}
+
+				.header .bar-data .pb-holder .arrow-down {
+					width: 0;
+					height: 0;
+					border-left: 8px solid transparent;
+					border-right: 8px solid transparent;
+					border-top: 8px solid #fff;
+					position: absolute;
+					top: -10px;
+					margin-left: -8px;
+				}				
+
+			.header .bar-data .stats { margin-top: 10px }
+
+				.header .bar-data .stats .item {
+					float: left;
+					width: 33%;
+				}
+
+				.stats span { font-size: 0.9em }				
+
+				span.big-font {
+				    font-size: 1.6em !important;
+				    display: block;
+				}				
+
+		.header .bar-data .stats .item { float: left }	
+
+		.wwf-logo { float: left }
+
+	.header .background-image { background-color: #222 }
+		.header .background-image img { opacity: 0.5 }
 
 /* ============================== TABS ============================== */
 
@@ -64,12 +235,15 @@ h1,h2 { font-size: 1.1em }
 }
 
 	.tabs li {
+		float: left;
 		padding: 2.5% 0;
 		width: 32%;
-		border-right: 1px solid #ddd;			
 	}
 
-		.tabs li:last-child { border: none }
+		.tabs li:nth-child(2) {
+			border-right: 1px solid #ddd;
+			border-left: 1px solid #ddd
+		}
 
 /* ============================== CONTENT ============================== */
 
@@ -111,3 +285,30 @@ h1,h2 { font-size: 1.1em }
 		}
 
 			.data-content .pill span:first-child { border-right: 1px solid #fff  }
+
+/* ============================== DETAIL VIEW ============================== */
+
+.detail-page { background-color: #f8f8f8 }
+
+	.detail-page .data-content { padding: 4% }
+
+	.detail-page .back-link {
+		margin-top: 0;
+		text-decoration: underline;
+		font-size: 0.9em;
+	}
+
+	.detail-page button {
+		width: 90%;
+		margin: 0 5%;
+		padding: 2% 0;
+		font-size: 1em;
+	}
+
+	.detail-page .bottom-toolbar {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		background-color: #fff;
+		padding: 5% 0;
+	}

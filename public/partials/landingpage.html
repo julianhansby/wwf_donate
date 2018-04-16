@@ -1,15 +1,15 @@
 <!-- HEADER -->
 <div class="row header">
 	<h1>Featured Charity</h1>
-	<img src="../img/koala.jpg">
+	<img src="../img/koala.jpg" class="main-img">
 </div>
 
 <!-- TABS -->
-<div class="row tabs">
+<div class="row tabs clearfix">
 	<ul>
-		<li ng-click="filterBy('newest')"><span>Newest</span></li>
-		<li ng-click="filterBy('popular')"><span>Popular</span></li>
-		<li ng-click="filterBy('enddate')"><span>End date</span></li>
+		<li ng-click="filterBy('newest')" ng-class="{ active:activeTag == 'newest' }"><span>Newest</span></li>
+		<li ng-click="filterBy('popular')" ng-class="{ active:activeTag == 'popular' }"><span>Popular</span></li>
+		<li ng-click="filterBy('enddate')" ng-class="{ active:activeTag == 'enddate' }"><span>End date</span></li>
 	</ul>
 </div>
 
@@ -17,21 +17,39 @@
 <div class="row content">
 
 	<!-- LOOP OVER ITEMS -->
-	<div class="data-content" ng-repeat="item in data">
+	<div class="data-content" ng-repeat="item in data track by $index">
 		<div class="top">
-			<img ng-src="{{item.imageUrl_thumb}}" />
+			<img ng-src="{{item.imageUrl_thumb}}" ng-click="goToDetail(item.id)" />
 			<div class="info">
-				<h2>{{item.title}}</h2>
-				<span>{{item.subTitle}}</span>
-				<strong>{{item.keyword}}, {{item.province}}</strong>
+				<h2 ng-click="goToDetail(item.id)">{{item.title}}</h2>
+				<span ng-click="goToDetail(item.id)">
+					Raising R{{item.goal}} by {{item.closingDate}}
+				</span>
+				<strong ng-click="goToDetail(item.id)">{{item.keyword}}, {{item.province}}</strong>
+				<button class="btn donate-btn" ng-click="showPopupModal(item.id)" ng-hide="item.raised > 99">
+					Donate
+				</button>
 			</div>	
 		</div>
-		<div class="bottom-toolbar">
-			<div class="pill">
+		<div class="bottom-toolbar" ng-click="goToDetail(item.id)">
+			<div class="pill" ng-class="{ completed:item.raised > 99 }">
 				<span>1 Day remaining</span>
-				<span>24% Raised</span>
+				<span>{{item.raised | number : 2}}% Raised</span>
 			</div>
 		</div>
+
+		<!-- POPUP MODAL --> 
+		<div class="overlay" ng-show="toggle[$index]"></div>
+		<div class="modal" ng-show="toggle[$index]">
+			<span class="close-btn" ng-click="closeModal($index)">x</span>
+			<h4>{{item.title}}</h4>
+			<p>Please add the amount you would like to donate (ZAR)</p>
+			<input type="text" placeholder="Enter amount here...500" ng-model="item.inputAmount">
+			<button class="btn donate-btn" ng-click="activateSaveDonation([$index],item.inputAmount)">
+				{{ isDone == true ? 'SAVED!': 'Donate'}}
+			</button>
+		</div>
+
 	</div>
 
 </div>

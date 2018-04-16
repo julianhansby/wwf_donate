@@ -14,19 +14,21 @@
 
 	<!-- CUSTOM CSS -->
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
+
+	<!-- use location provider for SEO -->
+	<base href="/">
 </head>
-<body>
+<body class="{{page}}">
 
 	<div class="container" ng-controller="mainController">
-
 		<!-- LOAD MAIN VIEW -->
 		<div ng-view></div>
-
 	</div>
 
 	<!-- SCRIPT LOADING -->
 	<script src="js/vendor/angular.min.js"></script>
 	<script src="js/vendor/angular-route.min.js"></script>	
-	<script src="js/main.js"></script>	
+	<script src="js/main.js"></script>
+
 </body>
 </html>
