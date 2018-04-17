@@ -19,6 +19,13 @@
 	<!-- LOOP OVER ITEMS -->
 	<div class="data-content" ng-repeat="item in data track by $index">
 		<div class="top">
+            <div class="c100 p{{item.raised}} small green">
+                <span>{{item.raised | number: 2}}%</span>
+                <div class="slice">
+                    <div class="bar"></div>
+                    <div class="fill"></div>
+                </div>
+            </div>			
 			<img ng-src="{{item.imageUrl_thumb}}" ng-click="goToDetail(item.id)" />
 			<div class="info">
 				<h2 ng-click="goToDetail(item.id)">{{item.title}}</h2>
@@ -44,7 +51,7 @@
 			<span class="close-btn" ng-click="closeModal($index)">x</span>
 			<h4>{{item.title}}</h4>
 			<p>Please add the amount you would like to donate (ZAR)</p>
-			<input type="text" placeholder="Enter amount here...500" ng-model="item.inputAmount">
+			<input type="text" placeholder="Enter amount here...E.g: 500" ng-model="item.inputAmount">
 			<button class="btn donate-btn" ng-click="activateSaveDonation([$index],item.inputAmount)">
 				{{ isDone == true ? 'SAVED!': 'Donate'}}
 			</button>

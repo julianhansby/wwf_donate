@@ -9,8 +9,10 @@
 	</div>
 	<div class="bar-data">
 		<div class="pb-holder">
-			<div class="arrow-bubble" style="left: {{raised}}%">{{raised}}%</div>
-			<div class="arrow-down" style="left: {{raised}}%"></div>
+			<div class="arrow-bubble" ng-class="{ shiftBubbleLeft: raised < 20,  shiftBubbleRight: raised > 90}" style="left: {{raised}}%">
+				{{raised | number: 2}}%
+			</div>
+			<div class="arrow-down" ng-class="{ shiftArrowDown: raised < 20 }" style="left: {{raised}}%"></div>
 			<div class="inner-bar" style="width: {{raised}}%"></div>
 		</div>
 		<div class="stats">
@@ -54,6 +56,19 @@
 		<p>{{contentDisplay}}</p>
 	</div>
 	<div class="bottom-toolbar" ng-hide="raised == 100">
-		<button class="btn donate-btn" ng-click="donate()">Donate</button>
+		<button class="btn donate-btn" ng-click="showPopupModal(id)">Donate</button>
 	</div>
+
+	<!-- POPUP MODAL --> 
+	<div class="overlay" ng-show="toggle[id]"></div>
+	<div class="modal" ng-show="toggle[id]">
+		<span class="close-btn" ng-click="closeModal(id)">x</span>
+		<h4>{{title}}</h4>
+		<p>Please add the amount you would like to donate (ZAR)</p>
+		<input type="text" placeholder="Enter amount here...E.g: 500" ng-model="inputAmount">
+		<button class="btn donate-btn" ng-click="activateSaveDonation([id],inputAmount)">
+			{{ isDone == true ? 'SAVED!': 'Donate'}}
+		</button>
+	</div>
+
 </div>
